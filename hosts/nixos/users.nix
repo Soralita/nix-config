@@ -38,6 +38,8 @@ in
         activitywatch
         vimPlugins.LazyVim # TODO not used
         wl-clipboard
+        gh
+        clash-nyanpasu
       ];
     };
     # "newuser" = {
