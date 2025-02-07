@@ -1,8 +1,11 @@
 {
   description = "ZaneyOS";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
@@ -13,7 +16,7 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, home-manager, nur, ... }@inputs:
     let
       system = "x86_64-linux";
       host = "nixos";
@@ -31,6 +34,9 @@
           modules = [
             ./hosts/${host}/config.nix
             inputs.stylix.nixosModules.stylix
+            {
+              nixpkgs.overlays = [ nur.overlay ];
+            }
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = {

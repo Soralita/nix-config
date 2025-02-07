@@ -21,6 +21,7 @@ in
     ../../modules/local-hardware-clock.nix
   ];
 
+
   boot = {
     # Kernel
     kernelPackages = pkgs.linuxPackages_zen;
@@ -50,7 +51,10 @@ in
     };
     plymouth.enable = true;
   };
-
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-11.5.0"
+    "openssl-1.1.1w"
+  ];
   # Styling Options
   stylix = {
     enable = true;

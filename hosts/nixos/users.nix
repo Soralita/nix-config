@@ -40,6 +40,12 @@ in
         wl-clipboard
         gh
         clash-nyanpasu
+        baidupcs-go
+        affine
+        nur.repos.xddxdd.baidunetdisk
+        nur.repos.xddxdd.uncategorized.rime-custom-pinyin-dictionary
+        nur.repos.xddxdd.uncategorized.rime-dict
+        nur.repos.xddxdd.uncategorized.rime-ice
       ];
     };
     # "newuser" = {
